@@ -12,17 +12,19 @@ import java.util.List;
 
 public class MakeLinksTest{
 
+    private final String url;
     private List<TestLinkContainer> testLinkContainerList;
 
-    public MakeLinksTest(List<TestLinkContainer> testLinkContainerList) {
+    public MakeLinksTest(List<TestLinkContainer> testLinkContainerList, String url) {
         this.testLinkContainerList = testLinkContainerList;
+        this.url = url;
     }
 
     public boolean doTest() {
         try {
 
             WebDriver webDriver = new ChromeDriver();
-            webDriver.get("https://en.wikipedia.org/wiki/Selenium_(software)");
+            webDriver.get(url);
 
             WebDriverWait webDriverWait = new WebDriverWait(webDriver,3);
 
